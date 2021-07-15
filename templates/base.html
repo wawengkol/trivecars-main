@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="{% static 'bootstrap-4.3.1-dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+    {{ form.media }}
+    <meta charset="utf-8">
+    <title>TRIVECARS</title>
+    <link rel="icon" href="{% static 'images/navbar-img.png' %}">
+  </head>
+  <body>
+    <script src="{% static 'js/jquery-3.6.0.js' %}"></script>
+    <script src="{% static 'bootstrap-4.3.1-dist/js/bootstrap.min.js' %}"></script>
+    <nav class="navbar fixed-top navbar-expand-lg">
+      <a class="navbar-brand text-primary" href="/home"> <img src="{% static 'images/navbar-img.png' %}" class="logo"> </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">Press Me!</span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'home' %}" ><span>| Home</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'vehicles' category='all' %}" id="vehicle"><span >| Vehicle</span></a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'profile' %}"><span >| Profile</span></a>
+          </li>
+            {% if user.is_staff %}
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'admin_dash' %}"><span >| Admin</span></a>
+            </li>
+            {% endif %}
+          {% else %}
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'register' %}"><span>| Register</span></a>
+          </li>
+          {% endif %}
+        </ul>
+        {% if user.is_authenticated %}
+        <a class="btn my-2 my-sm-0 login" href="{% url 'logout' %}">Log-out</a>
+        {% else %}
+        <a class="btn my-2 my-sm-0 login" href="{% url 'login' %}">Login</a>
+        {% endif %}
+      </div>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+    <footer class="container-fluid footer">
+      <div style="text-align: center;">
+        <p>All rights Reserved 2021</p>
+      </div>
+    </footer>
+    <script src="{% static 'js/home_effect.js' %}" ></script>
+  </body>
+</html>

@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% load crispy_forms_tags %}
+<link rel="stylesheet" property="stylesheet" href="{% static 'css/profile.css' %}">
+
+      <div class="row profile">
+           <div class="col-md-4 ">
+             <div class="card">
+               <div class="card-body">
+                 <div class="d-flex flex-column align-items-center text-center">
+                   <img src="{{ user.profile.image.url }}" alt="Admin" class="rounded-circle" >
+                   <div class="mt-3">
+                     <h4>Hi {{user.username}}</h4>
+                   </div>
+                 </div>
+               </div>
+             </div>
+             <div class="card mt-3">
+               <ul class="list-group list-group-flush">
+                 <li class="list-group-item d-flex  align-items-center flex-wrap">
+                   <a href="#" class="myProfile profileSetting">My Profile</a>
+                 </li>
+                 <li class="list-group-item d-flex  align-items-center flex-wrap">
+                   <a href="#" class="myTransactions profileSetting">My Transactions</a>
+                 </li>
+                 <li class="list-group-item d-flex  align-items-center flex-wrap">
+                   <a href="#" class="profileEdit profileSetting">Edit Profile</a>
+                 </li>
+                 <li class="list-group-item d-flex  align-items-center flex-wrap">
+                   <a href="#" class="passwordChange profileSetting">Change Password</a>
+                 </li>
+               </ul>
+             </div>
+           </div>
+           <div class="col-md-8 userProfile" >
+             <div class="card mb-3">
+               <div class="card-body">
+                 <div class="row">
+                   <div class="col-sm-3">
+                     <h6 class="mb-0">Full Name</h6>
+                   </div>
+                   <div class="col-sm-9 text-color">
+                     {{user.first_name|title}} {{user.last_name|title}}
+                   </div>
+                 </div>
+                 <hr>
+                 <div class="row">
+                   <div class="col-sm-3">
+                     <h6 class="mb-0">Email</h6>
+                   </div>
+                   <div class="col-sm-9 text-color" alt="---">
+                     {{user.email}}
+                   </div>
+                 </div>
+                 <hr>
+                 <div class="row">
+                   <div class="col-sm-3">
+                     <h6 class="mb-0">Mobile Number</h6>
+                   </div>
+                   <div class="col-sm-9 text-color" alt="---" >
+                     {{ user.profile.mobile_number }}
+                   </div>
+                 </div>
+                 <hr>
+                 <div class="row">
+                   <div class="col-sm-3">
+                     <h6 class="mb-0">Address</h6>
+                   </div>
+                   <div class="col-sm-9 text-color">
+                     {{ user.profile.address }}
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+
+           <div class="col-md-8 userTransaction mr-0 " >
+             <div class="card mb-3">
+               <div class="card-body">
+                 <div class="row">
+                   <div class="col-sm-2">
+                     <h6 class="mb-0">Car Model</h6>
+                   </div>
+                   <div class="col-sm-2">
+                     <h6 class="mb-0">Order Date</h6>
+                   </div>
+                   <div class="col-sm-2">
+                     <h6 class="mb-0">Delivery Address</h6>
+                   </div>
+                   <div class="col-sm-2">
+                     <h6 class="mb-0">Duration</h6>
+                   </div>
+                   <div class="col-sm-2">
+                     <h6 class="mb-0">Status</h6>
+                   </div>
+                   <div class="col-sm-2">
+                     <h6 class="mb-0">Amount Payable</h6>
+                   </div>
+                 </div>
+                 <div class=" transactionBody">
+                   {% for detail in details %}
+                   <div class="row">
+                     <div class="col-sm-2">
+                       <p class="text-color">{{detail.car_model}}</p>
+                     </div>
+                     <div class="col-sm-2">
+                       <p class="text-color">{{detail.order_date}}</p>
+                     </div>
+                     <div class="col-sm-2">
+                       <p class="text-color">{{detail.delivery_address}}</p>
+                     </div>
+                     <div class="col-sm-2">
+                       <p class="text-color">{{detail.duration}} Days</p>
+                     </div>
+                     <div class="col-sm-2">
+                       <p class="text-color">{{detail.status}}</p>
+                     </div>
+                     <div class="col-sm-2">
+                       <p class="text-color">{{detail.amount_payable}}</p>
+                     </div>
+                   </div>
+                   {% endfor %}
+                 </div>
+               </div>
+             </div>
+           </div>
+
+           <div class="col-md-8 editProfile mr-0 ">
+             <div class="card mb-3">
+               <div class="card-body">
+                 <form enctype="multipart/form-data" method="post">
+                   <div class="col-sm-12">
+                      {% csrf_token %}
+                      {{ u_form|crispy }}
+                      {{ p_form|crispy }}
+                     <button class="btn btn-primary btn-lg login" type="submit">Done</button>
+                  </div>
+                 </form>
+               </div>
+             </div>
+           </div>
+
+           <div class="col-md-8 changePassword">
+             <div class="card mb-3">
+               <div class="card-body">
+                 <form  method="post">
+                   {% csrf_token %}
+                   <label for="currentPassword"> <h6>Current Password</h6> </label>
+                   <input type="password" class="form-control" id="currentPassword" name="currentPassword" placeholder="Current Password" required><br>
+                   <label for="password1"> <h6>New Password</h6> </label>
+                   <input type="password" class="form-control" id="password1" name="newpass" placeholder="Password" required><br>
+                   <label for="password2"> <h6>Confirm Password</h6> </label>
+                   <input type="password" class="form-control" id="password2" name="checkpass" placeholder="Confirm Password" required><br>
+                   <button class="btn btn-primary btn-lg login"  type="submit">Done</button>
+                 </form>
+               </div>
+             </div>
+           </div>
+        <script src="{% static 'js/profileSetting.js' %}" ></script>
+    </div>
+{% endblock %}

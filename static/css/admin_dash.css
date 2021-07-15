@@ -1,0 +1,68 @@
+body{
+  background-color: grey ;
+}
+footer{
+  display: none;
+}
+.dash-body{
+  margin-top: 100px;
+  max-width: 100%;
+  padding: 0px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+.dash-body .row{
+  margin:0px;
+  margin-left: 9px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+
+.customers,.admin,.cars,.car-orders{
+  width:1200px;
+  margin-bottom: 50px;
+  text-align: center;
+  margin-top: 20px;
+  max-height: 500px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.head .col-md-4{
+  background-color: black;
+  color: #7EF9FF;
+}
+.body .col-md-4{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom : solid #7EF9FF 1px;
+  background-color: #1d232e;
+  color: #7EF9FF;
+}
+.head .col-md-3{
+  background-color: black;
+  color: #7EF9FF;
+}
+.body .col-md-3{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom : solid #7EF9FF 1px;
+  background-color: #1d232e;
+  color: #7EF9FF;
+}
+.head .col{
+  background-color: black;
+  color: #7EF9FF;
+}
+.body .col{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom : solid #7EF9FF 1px;
+  background-color: #1d232e;
+  color: #7EF9FF;
+}
+.allfields{
+  margin-left: 60px;
+  margin-right: 10px;
+}

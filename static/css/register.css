@@ -1,0 +1,48 @@
+
+body{
+  background-color: grey;
+}
+
+.navbar{
+  display: none;
+}
+
+.container{
+  color: #7EF9FF;
+  background-color: #1d232e;
+  margin-top: 100px;
+  width: 450px;
+  padding-bottom: 2%;
+  padding-top: 2.5%;
+  border: solid #7EF9FF;
+}
+
+h1{
+  padding: 2%;
+  text-align: center;
+  border: #7EF9FF;
+  border-radius: 5px;
+  margin-top: 0%;
+  background-color: black;
+  color: #7EF9FF;
+}
+#done{
+  width: 355px;
+  border: solid #7EF9FF;
+  color: #7EF9FF;
+  background-color : black;
+}
+
+.alert{
+  border-color: red;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  color: red;
+}
+.topLogo{
+  width: 100%;
+  max-width: 300px;
+  margin-top: 10px;
+  height: auto;
+}

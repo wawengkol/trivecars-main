@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" property="stylesheet" href="{% static 'css/home.css' %}">
+  <div class="container-fluid hero">
+    <div class="row">
+      <div class="col-xl-6">
+        <img src="{% static 'images/hero-img.png' %}" class="logo2">
+      </div>
+      <div class="col-xl-6 hero-text">
+        <h1 class="inHero" style="color:grey;">Welcome!</h1>
+        <p class="inHero">The Best site that allows you to rent a car in your convenience. We deliver you the vehicle of your choice in your place and pay in your place. Why not choose TRIVECARS? Rent Now!</p>
+        <a href="https://www.facebook.com/groups/pythonsnake2/" class="btn my-2 my-sm-0 login">Like Us On Facebook</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid our-cars" style="color:#7EF9FF; text-align: center;">
+    <div class="row" style="background-color: black; margin-bottom: 30px;">
+      <div class="col-12" style="padding-top: 20px;">
+        <h2 style="padding-bottom: 20px;">Our Cars</h2>
+      </div>
+    </div>
+    <a href="{% url 'vehicles' category='1' %}">
+      <div class="row ">
+        <div class="col-12 sedan">
+        </div>
+      </div>
+    </a>
+    <a href="{% url 'vehicles' category='3' %}">
+      <div class="row suv ">
+        <div class="col-12">
+        </div>
+      </div>
+    </a>
+    <a href="{% url 'vehicles' category='2' %}">
+      <div class="row van ">
+        <div class="col-12">
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="container-fluid free-services">
+    <div class="row" style="background-color: black; margin-bottom: 30px;">
+      <div class="col-12" style="padding-top: 20px;">
+        <h2 style="padding-bottom: 20px;">Free Services</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4 service-card maintain">
+        <img src="{% static 'images/maintenance.png' %}" alt="avatar" class="services-images">
+        <h5>Free Maintenance</h5>
+        <p>We maintain the car of your choice without any additional fees.</p>
+      </div>
+      <div class="col-4 service-card emergency">
+        <img src="{% static 'images/emergency.png' %}" alt="avatar" class="services-images">
+        <h5>Emergency Response</h5>
+        <p>We will respond to any emergency you are into like, changing batteries, flat tires, or even road accidents</p>
+      </div>
+      <div class="col-4 service-card protection">
+        <img src="{% static 'images/Security.png' %}" alt="avatar" class="services-images">
+        <h5>Theft Protection</h5>
+        <p>We ensure the safety of the vehicle whenever it left unattended. We are keeping track the location of the vehicle.</p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="container-fluid feedback" style="text-align: center;color:#7EF9FF;">
+    <h2>Testimony</h2>
+    <div class="row ">
+      <div class="col-6 infeedback">
+        <h1>Anonymous</h1>
+      </div>
+      <div class="col-6 infeedback">
+        <p>"TRIVECARS is the most convenient car rental services that I found. I don't need to go to the shop to pick up the car. Their price is reasonable and affordable. I never became late with my meetings because they deliver the car fast. So there is no question in choosing this car rental services. They are the best."</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid team mt-5" style="background-color: #1d232e; text-align: center;">
+    <h2 style="background-color: black; color:#7EF9FF;" class="mt-5">Our Team</h2>
+    <div class="row ">
+      <div class="col-6">
+        <div class="row">
+          <div class="col-6">
+            <img id="name1img" src="{% static 'images/tristan.jpg' %}" alt="Avatar">
+          </div>
+          <div class="col-6">
+            <h2 id="name1"><a href="https://www.facebook.com/AgusConMC/">Tristan Jay Virtudazo</a></h2>
+            <p style="color:#7EF9FF">Student</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col-6">
+            <img id="name2img" src="{% static 'images/juvy.jpg' %}" alt="Avatar">
+          </div>
+          <div class="col-6">
+            <h2 id="name2"><a href="https://www.facebook.com/juvygrace.gayawon">Juvy Grace Gayawon</a></h2>
+            <p style="color:#7EF9FF">Student</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row ">
+      <div class="col-6">
+        <div class="row">
+          <div class="col-6">
+            <img id="name3img" src="{% static 'images/sherwin.jpg' %}" alt="Avatar">
+          </div>
+          <div class="col-6">
+            <h2 id="name3"><a href="https://www.facebook.com/sherwin.villarin.96">Sherwin Villarin</a></h2>
+            <p style="color:#7EF9FF">Student</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col-6">
+            <img id="name4img" src="{% static 'images/nordan.jpg' %}" alt="Avatar">
+          </div>
+          <div class="col-6">
+            <h2 id="name4"><a href="https://www.facebook.com/NordanAmboy">Nordan Bañal</a></h2>
+            <p style="color:#7EF9FF"  >Student</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}

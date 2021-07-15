@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" property="stylesheet" href="{% static 'css/vehicles.css' %}">
+    <div class="sidenav accordion" id="cars">
+
+      <a id="all" href="{% url 'vehicles' category='all' %}">All</a>
+      <a id="van" href="{% url 'vehicles' category='2' %}">Van</a>
+      <a id="suv" href="{% url 'vehicles' category='3' %}">SUV</a>
+      <a id="sedan" href="{% url 'vehicles' category='1' %}">Sedan</a>
+
+    </div>
+    <div class="cars form-inline">
+    {% for car in cars %}
+      <div class="card" style="width: 20rem;">
+        <img src="{{car.image.url}}" class="card-img-top carPhoto">
+        <div class="card-body">
+          <h5 class="card-title">{{car.brand}} {{car.model}}</h5>
+          <p><strong>Specifications :</strong><br>{{car.specifications}}</p>
+          <p><strong>Price :</strong>{{car.price}}</p>
+            {% if user.is_authenticated %}
+            <a href="{% url 'create_rent' car.id %}" class="btn btn-primary rentButton" >Rent</a>
+            {% else %}
+            <a href="{% url 'login' %}" class="btn btn-primary rentButton">Rent</a>
+            {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+      </div>
+      <ul class="pagination">
+        {% if cars.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page=1">First</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ cars.previous_page_number }}">Previous</a></li>
+        {% endif %}
+
+        <li class="page-item"><a class="page-link">Page {{ cars.number }} of {{ cars.paginator.num_pages }}.</a></li>
+        {% if cars.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{ cars.next_page_number }}">Next</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ cars.paginator.num_pages }}">Last</a></li>
+        {% endif %}
+      </ul>
+{% endblock %}

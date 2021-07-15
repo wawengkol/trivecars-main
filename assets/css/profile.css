@@ -1,0 +1,42 @@
+body{
+  background-color: #1d232e;
+}
+
+
+.rounded-circle{
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+.profile{
+  margin-top: 100px;
+  margin-right: 0px;
+  margin-left: 0px;
+  max-width: 100%;
+  margin-bottom: 76px;
+}
+
+ .col-md-8{
+  padding: 0px;
+}
+.card,.list-group-item,a.profileSetting{
+  color: #7EF9FF;
+  background-color: grey;
+}
+
+.text-color{
+  color: #7EF9FF;
+}
+
+.userProfile{
+  display: inline;
+}
+.userTransaction, .editProfile, .changePassword{
+  display: none;
+}
+.transactionBody{
+  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 377px;
+}

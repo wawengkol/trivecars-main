@@ -1,0 +1,146 @@
+
+
+.free-services{
+  padding: 50px;
+  background-color: grey;
+  text-align: center;
+  color: #7EF9FF;
+}
+
+.our-cars{
+  max-width: 100%;
+}
+
+.hero{
+  padding: 75px;
+  padding-top: 155px;
+  padding-bottom: 100px;
+  color: #7EF9FF;
+  text-align: center;
+}
+
+.hero-text{
+  padding-top: 100px;
+  padding-left: 50px;
+  text-align: left;
+}
+
+.hero-text img{
+  background-color: #7EF9FF;
+  padding: 10px;
+  margin-right: 10px;
+  vertical-align: middle;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  margin-top: 15px;
+  border: solid black;
+}
+.hero-text img,h1,p{
+  margin-bottom: 25px;
+}
+.services-images{
+  margin-bottom: 10px;
+  background-color: #7EF9FF;
+  padding: 20px;
+  border:solid 1px black;
+  vertical-align: middle;
+  width: 90px;
+  height: 90px;
+  border-radius: 20%;
+
+}
+h2{
+  padding-bottom: 30px;
+}
+
+.vehicles{
+  text-align: center;
+}
+
+.sedan{
+  background-image: url("../images/sedan wall.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 250px;
+  margin-bottom: 30px;
+}
+
+.suv{
+  background-image: url("../images/suv wall.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 250px;
+  margin-bottom: 30px;
+}
+
+.van{
+  background-image: url("../images/van wall.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 250px;
+  margin-bottom: 30px;
+}
+
+.service-card{
+  background-color: black ;
+  border: solid grey 20px;
+  border-left: solid grey 50px;
+  border-right: solid grey 50px;
+  color: #7EF9FF;
+  padding-top: 40px;
+  padding-bottom: 20px;
+
+}
+
+.card{
+  color: black;
+  background-color: grey;
+  border: solid #1d232e 5px;
+  margin-right: 50px;
+
+
+}
+.card a{
+  background-color: black;
+  border-color: #7EF9FF;
+  padding: 0;
+  color: #7EF9FF;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.feedback{
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.infeedback{
+  padding: 40px;
+}
+
+.team a{
+  color: #7EF9FF;
+}
+.team img{
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+
+}
+.team{
+  padding-bottom: 50px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.team h2{
+  padding-top: 20px;
+}
+.team .row{
+  margin: 50px;
+}

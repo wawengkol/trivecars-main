@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load static %}
+<link rel="stylesheet" property="stylesheet" href="{% static 'css/create_rent.css' %}">
+
+    <div class="form-inline rentForm " style="text-align: center">
+      <div class="card" style="width: 30rem;">
+        <form method="post">
+          <img src="{{car.image.url}}" class="card-img-top rentimg">
+          <div class="card-body">
+            {% csrf_token %}
+            <h2 name=carModel >{{car.model}}</h2>
+            {{ form.car_model.as_hidden }}
+            {{ form.sub_total.as_hidden }}
+            {{form.status.as_hidden}}
+            {{ form.user.as_hidden }}
+            <h6>Duration</h6>
+            {{ form.duration}}
+            <br>
+            <br>
+            <h6>Delivery Address</h6>
+            {{ form.delivery_address }}
+            <br>
+            <br>
+            <h6>Expected Time of Delivery</h6>
+            {{ form.expected_delivery }}
+            <br>
+            <br>
+            <button class="btn my-2 my-sm-0 login" type="submit" name="sumbitRent">Confirm</button>
+            <a href="{% url 'vehicles' category='all' %}" class="btn btn-danger btn-small">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+{% endblock %}

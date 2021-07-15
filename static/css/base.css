@@ -1,0 +1,56 @@
+
+
+body{
+  /*font-family: 'Balsamiq Sans', cursive;*/
+  background-color: #1d232e ;
+  min-width: 100%;
+
+
+}
+
+.navbar{
+  position: fixed;
+  background-color: black;
+  max-width: 100%;
+}
+
+.navbar-toggler{
+  color: #7EF9FF;
+  border-color: #7EF9FF;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 18px;
+  text-align: center;
+}
+
+.logo{
+  padding-top: 5px;
+  width: 142px;
+  margin-right: 105px
+}
+.logo2{
+  padding-top: 30px;
+  width: 100%;
+  max-width: 675px;
+  height: auto;
+  opacity: 0;
+}
+
+.nav-link{
+  color: #7EF9FF;
+}
+.login{
+  background-color: black;
+  border-color: #7EF9FF;
+  color: #7EF9FF;
+}
+
+.footer{
+  color: #7EF9FF;
+  background-color: black;
+  bottom: 0;
+  padding: 0px;
+}
+footer p{
+  margin: 0px;
+}

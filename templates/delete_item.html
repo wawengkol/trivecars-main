@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" property="stylesheet" href="{% static 'css/Login.css' %}">
+  <a href=" /home"><img src="{% static 'images/navbar-img.png' %}" class="topLogo"></a>
+  <div  class="container jumbotron loginForm ">
+    <h5>Are you sure you want to delete this item?</h5>
+    <form method="post">
+      {% csrf_token %}
+      <button class="btn btn-danger my-2 my-sm-0 " type="submit" name="button">Delete</button>
+      <a class="btn btn-primary my-2 my-sm-0 " href="{% url 'admin_dash' %}">Cancel</a><br>
+    </form >
+  </div>
+  <script src="{% static 'js/login.js' %}"></script>
+{% endblock %}

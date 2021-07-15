@@ -1,0 +1,18 @@
+$(document).ready(function(){
+  $("#all").css("background-color","#1d232e");
+  $("#van").click(function(){
+    $(this).css("background-color","#1d232e");
+    $("#suv").css("background-color","black");
+    $("#sedan").css("background-color","black");
+  });
+  $("#sedan").click(function(){
+    $(this).css("background-color","#1d232e");
+    $("#van").css("background-color","black");
+    $("#suv").css("background-color","black");
+  });
+  $("#suv").click(function(){
+    $(this).css("background-color","#1d232e");
+    $("#van").css("background-color","black");
+    $("#sedan").css("background-color","black");
+  });
+});

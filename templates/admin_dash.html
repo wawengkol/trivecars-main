@@ -1,0 +1,225 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% load crispy_forms_tags %}
+<link rel="stylesheet" property="stylesheet" href="{% static 'css/admin_dash.css' %}">
+  <div class="dash-body">
+    <div class="row">
+      <div class="col-2">
+        <div class="card" style="width: 12rem;">
+          <div class="card-body">
+            <h5 class="card-title">Total Cars</h5>
+            <h1>{{ total_items.cars }}</h1>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="card" style="width: 12rem;">
+          <div class="card-body">
+            <h5 class="card-title">Total Orders</h5>
+            <h1>{{total_items.car_orders}}</h1>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="card" style="width: 12rem;">
+          <div class="card-body">
+            <h5 class="card-title">Total Users</h5>
+            <h1>{{total_items.users}}</h1>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="card" style="width: 12rem;">
+          <div class="card-body">
+            <h5 class="card-title">Sales of The Day</h5>
+            <h1 class="mt-4 mb-4" id="day" style="visibility:hidden">{{total_items.day_sales}}</h1>
+            <a id="gen1" href="#" class="btn-sm btn-primary">Generate</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="card" style="width: 12rem;">
+          <div class="card-body">
+            <h5 class="card-title">Sales of The Month</h5>
+            <h1 id="month" style="visibility:hidden">{{total_items.month_sales}}</h1>
+            <a id="gen2" href="#" class="btn-sm btn-primary ">Generate</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="card" style="width: 12rem;">
+          <div class="card-body">
+            <h5 class="card-title">Sales of The Year</h5>
+            <h1 id="year"style="visibility:hidden" >{{total_items.year_sales}}</h1>
+            <a id="gen3" href="#" class="btn-sm btn-primary">Generate</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container allfields">
+      <h2>Users</h2>
+      <div class="customers">
+        <div class="row head">
+          <div class="col-md-4">
+            <strong>Name</strong>
+          </div>
+          <div class="col-md-4">
+            <strong>UserName</strong>
+          </div>
+          <div class="col-md-4">
+            <strong>Action</strong>
+          </div>
+        </div>
+        {% for user in users %}
+        <div class="row body">
+          <div class="col-md-4">
+            {{user.first_name|title}} {{user.last_name|title}}
+          </div>
+          <div class="col-md-4">
+            {{user.username}}
+          </div>
+          <div class="col-md-4">
+            <a href="{% url 'delete_item' item='user' pk=user.id %}" class="btn-danger btn-sm">Delete</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+
+      <h2>Staffs</h2>
+        <a href="{% url 'add_staff' %}" class="btn-lg btn-primary add">Add Staff</a>
+      <div class="admin">
+        <div class="row head">
+          <div class="col-md-4">
+            <strong>Name</strong>
+          </div>
+          <div class="col-md-4">
+            <strong>UserName</strong>
+          </div>
+          <div class="col-md-4">
+            <strong>Action</strong>
+          </div>
+        </div>
+        {% for user in users %}
+          {% if user.is_staff %}
+          <div class="row body">
+            <div class="col-md-4">
+              {{user.first_name|title}} {{user.last_name|title}}
+            </div>
+            <div class="col-md-4">
+              {{user.username}}
+            </div>
+            <div class="col-md-4">
+              <a href="{% url 'delete_item' item='user' pk=user.id %}" class="btn-danger btn-sm">Delete</a>
+            </div>
+          </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+
+      <h2>Car Products</h2>
+        <a href="{% url 'add_cars' %}" class="btn-lg btn-primary add">Add Car</a>
+      <div class="cars">
+        <div class="row head">
+          <div class="col-md-3">
+            <strong>Car Type</strong>
+          </div>
+          <div class="col-md-3">
+            <strong>Brand</strong>
+          </div>
+          <div class="col-md-3">
+            <strong>Model</strong>
+          </div>
+          <div class="col-md-3">
+            <strong>Action</strong>
+          </div>
+        </div>
+        {% for car in cars %}
+        <div class="row body">
+          <div class="col-md-3">
+              {{car.car_type}}
+            </div>
+            <div class="col-md-3">
+              {{car.brand}}
+            </div>
+            <div class="col-md-3">
+              {{car.model}}
+            </div>
+            <div class="col-md-3">
+              <a href="{% url 'edit_cars' car.id %}" class="btn-sm btn-primary">Update</a>
+              <a href="{% url 'delete_item' item='cars' pk=car.id %}" class="btn-sm btn-danger">Delete</a>
+            </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <h2>Car Orders</h2>
+      <div class="car-orders">
+        <div class="row head">
+          <div class="col">
+            <strong>User</strong>
+          </div>
+          <div class="col">
+            <strong>Car Model</strong>
+          </div>
+          <div class="col">
+            <strong>Order Date</strong>
+          </div>
+          <div class="col">
+            <strong>Duration</strong>
+          </div>
+          <div class="col">
+            <strong>To Address</strong>
+          </div>
+          <div class="col">
+            <strong>Expected Delivery</strong>
+          </div>
+          <div class="col">
+            <strong>Status</strong>
+          </div>
+          <div class="col">
+            <strong>Action</strong>
+          </div>
+        </div>
+        {% for order in car_orders %}
+        <div class="row body">
+          <div class="col">
+            {{order.user}}
+          </div>
+          <div class="col">
+            {{order.car_model}}
+          </div>
+          <div class="col">
+            {{order.order_date}}
+          </div>
+          <div class="col">
+            {{order.duration}}
+          </div>
+          <div class="col">
+            {{order.delivery_address}}
+          </div>
+          <div class="col">
+            {{order.expected_delivery}}
+          </div>
+          <div class="col">
+            {{order.status}}
+          </div>
+          <div class="col">
+            <a href="{% url 'edit_rent' order.id %}" class="btn-sm btn-primary">Update</a>
+            <a href="{% url 'delete_item' item='order' pk=order.id %}" class="btn-sm btn-danger">Delete</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+  </div>
+  <script  src="{% static 'js/admin_dash.js' %}" type="text/javascript">
+
+  </script>
+
+
+{% endblock %}

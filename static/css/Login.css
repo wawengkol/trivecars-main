@@ -1,0 +1,44 @@
+
+body{
+  background-color: black;
+}
+.navbar{
+  display: none;
+}
+
+.container{
+  background-color: #1d232e;
+  margin-top:25px;
+  width: 325px;
+  margin-bottom: 5%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border: solid #7EF9FF
+}
+.loginBody{
+  background-color: black;
+}
+.loginBTN{
+  width: 254px;
+  border-color: #7EF9FF;
+  color: black;
+  background-color : #7EF9FF;
+}
+.loginForm{
+  color: #7EF9FF;
+}
+.loginInput{
+  border-color: #7EF9FF;
+}
+.topLogo{
+  width: 100%;
+  max-width: 300px;
+  margin-left: 530px;
+  margin-top: 55px;
+  height: auto;
+}
+
+.footer{
+  color: #7EF9FF;
+  background-color: black;
+}
